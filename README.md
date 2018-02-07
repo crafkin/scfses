@@ -2,7 +2,9 @@
 The Stata program `scfses` obtains accurate point estimates and standard errors of an arbitrary percentile (or the mean) of a variable in the Survey of Consumer Finances (SCF). For example, `scfses` can help you easily obtain the median and standard error on the median. It incorporates weights and accounts for both _imputation variability_ and _sampling variability_. 
 
 # Installation and Set Up 
-To install the program, download `scfses.ado` and `scfses.sthlp` and place them in your `PLUS` folder. (To find your `PLUS` folder, enter: `sysdir list` in the Stata terminal.) 
+To install the program, enter `net install scfses, from(https://raw.github.com/crafkin/scfses/master/) replace`. 
+
+Alternatively, download `scfses.ado` and `scfses.sthlp` and place them in your `PLUS` folder. (To find your `PLUS` folder, enter: `sysdir list` in the Stata terminal.) 
 
 To download the SCF dataset, go to [the SCF website](https://www.federalreserve.gov/econres/scfindex.htm). Download both the "Main Survey Data" and the "Replicate Weight File." 
 
