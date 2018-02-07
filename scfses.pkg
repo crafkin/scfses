@@ -1,0 +1,5 @@
+v 0.1 
+d scfses, program to generate point estimates and standard errors for the mean and a given percentile of a variable from the Survey of Consumer Finances
+d Charlie Rafkin, NBER 
+f scfses.ado
+f scfses.sthlp
