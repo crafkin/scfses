@@ -168,7 +168,7 @@ syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) 
         }
 
         /* store the imputation variability */ 
-        local imputvar = `imputsum' / (`imp'-1)   /// imp-1 is the denominator for the variability
+        local imputvar = `imputsum' / (`imp'-1)   // imp-1 is the denominator for the sample variance
 
         /***********************************************************/
         /* /\* generate the sampling variability of implicate #1 *\/  */
@@ -238,7 +238,7 @@ syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) 
 
 
         /* determine the within variability */
-        local bootvar = `imputsum' / (`numberdraws' - 1)
+        local bootvar = `imputsum' / (`numberdraws' - 1) // `numberdraws' - 1 is the denominator for sample variance 
 
         /* add the two */
         local totalvar = ((`imp'+1) / `imp') * `imputvar' + `bootvar' // note that the "between" variance REQUIRES multiplying by (m + 1) / m
