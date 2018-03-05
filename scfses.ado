@@ -177,8 +177,8 @@ syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) 
         noisily di "bootstrapping `numberdraws' draws to obtain sampling variability"
         
         /* initialize the average */
-        local bootsum = 0       
-       
+        local drawsum = 0       
+        
         /******* conduct the bootstrap for the sampling variability ********/
         forv boot = 1/`numberdraws' {
 
