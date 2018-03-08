@@ -214,7 +214,7 @@ syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) 
                                 }
                                 
                                 /* generate the variable you want */
-                                qreg `depvar' `weightexp', `pctlstring' 
+                                `reg' `depvar' `weightexp', `pctlstring' 
 
                                 /* store the local variable */
                                 local drawscons`boot' = _b[_cons]
