@@ -15,7 +15,8 @@ The program also report the degree of freedom for the t-test, following Barnard 
 The stored confidence intervals also incorporate the correction for the degrees of freedom. 
 
 Author: Charlie Rafkin, crafkin@nber.org
-Date: January 2018
+First Posted: January 2018
+Last Updated: March 2018
 
 */
 
