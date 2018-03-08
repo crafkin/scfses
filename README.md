@@ -1,6 +1,9 @@
 # Overview
 The Stata program `scfses` obtains accurate point estimates and standard errors of an arbitrary percentile (or the mean) of a variable in the Survey of Consumer Finances (SCF). For example, `scfses` can help you easily obtain the median and standard error on the median. It incorporates weights and accounts for both _imputation variability_ and _sampling variability_. 
 
+# Updates
+Update March 8, 2018: Fixed an error in computing standard errors on means. 
+
 # Installation and Set Up 
 To install the program, run 
 
