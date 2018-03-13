@@ -15,7 +15,7 @@ Alternatively, download `scfses.ado` and `scfses.sthlp` and place them in your `
 
 To download the SCF dataset, go to [the SCF website](https://www.federalreserve.gov/econres/scfindex.htm). Download both the "Main Survey Data" and the "Replicate Weight File." 
 
-For example, you can download the [2016 SCF data](https://www.federalreserve.gov/econres/files/scf2016s.zip), the [2016 replicate weights file](https://www.federalreserve.gov/econres/files/scf2016rw1s.zip), and [the 2016 summary extract](https://www.federalreserve.gov/econres/files/scfp2016s.zip) (a version of useful SCF variables cleaned from the micro-data). Once you merge the replicate weights file with the main dataset and generate a variable indexing the implicates, you can use `scfses` to analyze variables' distributions. 
+For example, you can download the [2016 SCF data](https://www.federalreserve.gov/econres/files/scf2016s.zip), the [2016 replicate weights file](https://www.federalreserve.gov/econres/files/scf2016rw1s.zip), and [the 2016 summary extract](https://www.federalreserve.gov/econres/files/scfp2016s.zip) (a version of useful SCF variables cleaned from the microdata). Once you merge the replicate weights file with the main dataset and generate a variable indexing the implicates, you can use `scfses` to analyze variables' distributions. 
 
 # Usage
 Usage notes are documented in detail in the Stata help file. 
