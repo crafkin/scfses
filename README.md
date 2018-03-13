@@ -15,10 +15,12 @@ Alternatively, download `scfses.ado` and `scfses.sthlp` and place them in your `
 
 To download the SCF dataset, go to [the SCF website](https://www.federalreserve.gov/econres/scfindex.htm). Download both the "Main Survey Data" and the "Replicate Weight File." 
 
+For example, you can download the 2016 SCF data [here](https://www.federalreserve.gov/econres/files/scf2016s.zip), the 2016 replicate weights file [here](https://www.federalreserve.gov/econres/files/scf2016rw1s.zip), and the 2016 summary extract [here](https://www.federalreserve.gov/econres/files/scfp2016s.zip). 
+
 # Usage
 Usage notes are documented in detail in the Stata help file. 
 
-* It is not straightforward to generate standard errors on the mean or a specified percentile of the unconditional distribution of an SCF variable. If you are not careful, your standard errors and confidence intervals may be too small. `scfses` follows SCF guidance on combining _imputation variability_ and _sampling variability_ to obtain standard errors.
+* It is not straightforward to generate standard errors on the mean or a specified percentile of the unconditional distribution of an SCF variable. If you are not careful, your standard errors and confidence intervals may be too small. `scfses` follows [SCF guidance](https://www.federalreserve.gov/econres/files/Standard_Error_Documentation.pdf) on combining _imputation variability_ and _sampling variability_ to obtain standard errors.
 
 * `scfses` estimates imputation variability by computing the sample variance of within-implicate point estimates. `scfses` estimates sampling variability by using the information contained in the replicate draw variables to construct the distribution of the variable from the first implicate; the sample variance of that distribution represents sampling variability. The program combines imputation and sampling variability following the SCF guidance.
 
@@ -27,6 +29,13 @@ Usage notes are documented in detail in the Stata help file.
 * `scfses` stores point estimates and standard errors for post-estimation analysis. 
 
 * `scfses` requires a vector of replicate sampling variables and replicate weight variables &mdash; one for each replicate used to compute sampling variance. 
+
+* SCF recommends the command `scfcombo`for generating means and their standard errors. This command is similar but has the following advantages: 
+
+1. `scfses` makes it easy to generate point estimates and standard errors on an arbitrary percentile (which, to my knowledge, `scfcombo` cannot do without some modification) 
+2. It incorporates a degrees-of-freedom correction for confidence intervals. 
+
+That said, `scfcombo` may be useful for other applictions. 
 
 # Author
 Charlie Rafkin  
