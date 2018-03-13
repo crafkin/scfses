@@ -3,6 +3,7 @@ The Stata program `scfses` obtains accurate point estimates and standard errors 
 
 # Updates
 Update March 8, 2018: Fixed an error in computing standard errors on means. 
+
 Update March 13, 2018: Option changed from `nodofcorr` to `nodfcorr` for naming consistency. Help file updated with more explanation. 
 
 # Installation and Set Up 
