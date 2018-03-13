@@ -3,6 +3,7 @@ The Stata program `scfses` obtains accurate point estimates and standard errors 
 
 # Updates
 Update March 8, 2018: Fixed an error in computing standard errors on means. 
+Update March 13, 2018: Option changed from `nodofcorr` to `nodfcorr` for naming consistency. Help file updated with more explanation. 
 
 # Installation and Set Up 
 To install the program, run 
@@ -30,7 +31,7 @@ Usage notes are documented in detail in the Stata help file.
 
 * `scfses` requires a vector of replicate sampling variables and replicate weight variables &mdash; one for each replicate used to compute sampling variance. 
 
-* SCF recommends the command `scfcombo`for generating means and their standard errors. While `scfcombo` may be useful for other applications, `scfses` has the following advantages for summarizing the data: 
+* SCF recommends the command `scfcombo`for generating means and their standard errors. `scfcombo` may be useful for other applications (and some ideas `scfses` were inspired by `scfcombo`). But `scfses` has the following advantages for summarizing the data: 
 
 1. `scfses` makes it easy to generate point estimates and standard errors on an arbitrary percentile (which, to my knowledge, `scfcombo` cannot do without some modification) 
 2. `scfses` incorporates a degrees-of-freedom correction for confidence intervals. 
@@ -42,7 +43,6 @@ crafkin@nber.org
 
 Program developed to obtain estimates in:  
 Beshears, John, James Choi, David Laibson, and Brigitte C. Madrian. "Household Finance." In *Handbook of Behavioral Economics*, edited by B. Douglas Bernheim, Stefano DellaVigna, and David Laibson. Elsevier: 2018 (expected). </p>
-
 
 <!---
 # References 

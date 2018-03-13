@@ -29,7 +29,7 @@
 {synopt:{opt ci(#)}} the confidence interval returned in {cmd:r(table)}.  The default is a 95% CI.{p_end}
 {synopt:{opt impnm(string)}} name for variables containing the name of the implicate.  The default name is {cmd:rep}. {p_end}
 {synopt:{opt repnm(string)}} name for variables containing the number of draws in the i-th replicate.  The default name is {cmd:mm}.  {p_end}
-{synopt:{opt repwt(string)}} name for variables containing the weights for draws in the i-th replicate.  {cmd:wt1b} is the default; not invoked unless the program is already weighted.  {p_end}
+{synopt:{opt repwt(string)}} name for variables containing the weights for draws in the i-th replicate.  {cmd:wt1b} is the default and is not invoked unless the program is already weighted.  {p_end}
 {synopt:{opt nodfcorr}} turns off the degrees of freedom correction.{p_end}
 {synoptline}
 {p2colreset}{...}
@@ -64,19 +64,19 @@ It is recommended to use the survey weights contained in the SCF to obtain accur
 {pstd}
 To invoke the command, one must specify: {p_end}
 {pstd}
-- The desired variable{p_end}
+- the desired variable{p_end}
 {pstd}
-- The desired percentile {p_end}
+- the desired percentile {p_end}
 {pstd}
-- The name of the variable containing the implicate number (the default is rep) {p_end}
+- the name of the variable containing the implicate number (the default is rep) {p_end}
 {pstd}
-- The name of variables containing the replicate draws for each observation (the default is mm, e.g. 
+- the name of variables containing the replicate draws for each observation (the default is mm, e.g. 
 mm50 contains the number of draws for each observation in the 50th replicate){p_end}
 
 {pstd}
-- (Technically optional) the variable containing the weights, using standard Stata syntax {p_end}
+- (technically optional) the variable containing the weights, using standard Stata syntax {p_end}
 {pstd}
-- (Technically optional) the name of variables containing the weights for the replicate draws (the default is wt1b, 
+- (technically optional) the name of variables containing the weights for the replicate draws (the default is wt1b, 
 e.g. wt1b50 contains the weights for each observation in the 50th replicate).  {p_end}
 
 {marker options}{...}
@@ -88,7 +88,8 @@ e.g. wt1b50 contains the weights for each observation in the 50th replicate).  {
 Specifying any number outside the range 0-100, or any string other than "mean," will yield an error.  
 
 {phang}
-{opt number:draws(#)} specifies the the number of replicate draws to be used for computation of "within" variability.  The default number is 200, which means that if the option is not invoked, the command will 
+{opt number:draws(#)} specifies the the number of replicate draws to be used for computation of "within" variability. 
+The default number is 200, which means that if the option is not invoked, the command will 
 compute the within variability using 200 replicate draws.
 
 {phang}
@@ -103,10 +104,14 @@ The default is 95; in other words, {cmd:scfses} will deliver the 95% confidence 
 {phang}
 {opt repnm(string)} specifies the prefix for all variables containing the number of replicate draws for each observation.  
 The dataset on which {cmd:scfses} acts must have a vector of variables, titled in a consistent way, that contain the number of draws of each observation for a given replicate.  
-The default name is mm; in that case, the command searches for variables titled mm1, mm2, mm3, mm4, ...  , where each variable contains the number of draws in a given replicate.  
+The default name is mm, since that is the default name for these variables in the SCF replicate weights file downloadable from the SCF website.  
+In that case, the command searches for variables titled mm1, mm2, mm3, mm4, ...  , where each variable contains the number of draws in a given replicate. 
 
 {phang}
-{opt repwt(string)} specifies the prefix for all variables containing the weight for each observation in a given replicate.  The dataset on which {cmd:scfses} must have a vector of variables, titled in a consistent way, that contain the weight of draws of each observation for a given replicate.  The default name is wt1b; in that case, the command searches for variables titled wt1b1, wt1b2, wt1b3, wt1b4, ...  , where each variable contains the number of draws in a given replicate.  
+{opt repwt(string)} specifies the prefix for all variables containing the weight for each observation in a given replicate.  
+The dataset on which {cmd:scfses} must have a vector of variables, titled in a consistent way, that contain the weight of draws of each observation for a given replicate.  
+The default name is wt1b, since that is the default name for these variables in the SCF replicate weights file downloadable from the SCF website.  
+In that case, the command searches for variables titled wt1b1, wt1b2, wt1b3, wt1b4, ...  , where each variable contains the number of draws in a given replicate.  
 These weights are not used in computation unless pweights are already specified.  
 
 {phang}
@@ -138,7 +143,6 @@ These weights are not used in computation unless pweights are already specified.
 
 {pstd}
 {cmd:e(V)} contains the variability.  
-
 
 {title:Remarks}
 
@@ -236,8 +240,12 @@ Obtains mean debt among people ages 50-54 in the 2016 SCF.  Uses 999 replicates 
 {title:References}
 {phang} Barnard, John, and Donald B. Rubin.  1999.  "Small-Sample Degrees of Freedom with Multiple Imputation." {it:Biometrica}
  86 (4): 948-955.  {p_end}
-{phang} Kennickell, Arthur B.  2000.  "Wealth Measurement in the Survey of Consumer Finances: Methodology and Directions for Future Research." {p_end}
+{phang} Kennickell, Arthur B.  1998.  "Multiple Imputation in the Survey of Consumer Finances."  {it:Statistical Journal of the IAOS} 33 (1): 143-151.  {p_end} 
+{phang} Kennickell, Arthur B.  2000.  "Wealth Measurement in the Survey of Consumer Finances: Methodology and Directions for Future Research."  {p_end}
+{phang} Kennickel, Arthur B., and R. L. Woodburn.  1999.  "Consistent Weight Design for the 1989, 1992, and 1995 SCFs, and the Distribution of Wealth."  {it:Review of Income and Wealth} 45 (2): 193-215.  {p_end} 
 {phang} Monalto, Catherine Phillips, and Jaimie Sung.  1996.  "Multiple Imputation in the 1992 Survey of Consumer Finances." {it:Financial Counseling and Planning} 7 (1): 133-146.  {p_end}
+
+Code from Jane Brittingham's command {cmd:scfcombo}, which also can be used to summarize the SCF, inspired some ideas for {cmd:scfses}. 
 
 {title:Author}
 {pstd}
