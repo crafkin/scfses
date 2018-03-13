@@ -30,12 +30,10 @@ Usage notes are documented in detail in the Stata help file.
 
 * `scfses` requires a vector of replicate sampling variables and replicate weight variables &mdash; one for each replicate used to compute sampling variance. 
 
-* SCF recommends the command `scfcombo`for generating means and their standard errors. This command is similar but has the following advantages: 
+* SCF recommends the command `scfcombo`for generating means and their standard errors. While `scfcombo` may be useful for other applications, `scfses` has the following advantages for summarizing the data: 
 
 1. `scfses` makes it easy to generate point estimates and standard errors on an arbitrary percentile (which, to my knowledge, `scfcombo` cannot do without some modification) 
-2. It incorporates a degrees-of-freedom correction for confidence intervals. 
-
-That said, `scfcombo` may be useful for other applictions. 
+2. `scfses` incorporates a degrees-of-freedom correction for confidence intervals. 
 
 # Author
 Charlie Rafkin  
