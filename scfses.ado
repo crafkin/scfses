@@ -1,6 +1,6 @@
 /*
 
-This program generates a percentile (and its standard error) from the unconditional distribution of a variable
+This program generates a percentile (and its standard error) from the uncondtional distribution of a variable
 from the Survey of Consumer Finances. The program can also generate the mean. 
 
 In the SCF, an unbiased estimator for the parameter of interest is the average of
@@ -22,7 +22,7 @@ Last Updated: March 2018
 
 capture pr drop scfses 
 pr define scfses, eclass
-syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) impnm(string) repnm(string) repwt(string) ci(int 95) noDOFcorr ]
+syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) impnm(string) repnm(string) repwt(string) ci(int 95) noDfcorr ]
      
     * p: percentile desired (must be a number between 0-100 or the string "mean". default is p(50), the median.                         
     * numberdraws: number of replicate draws, default is 200. 
@@ -276,7 +276,7 @@ syntax varlist [if/] [pweight],  [p(string) NUMberdraws(integer 200) imp(int 5) 
         /* Prepare post-estimation results for user use */
         /************************************************/         
         /* if the DOF correction is turned off, just assume we have a large sample */ 
-        if "`dofcorr'" != "" {
+        if "`dfcorr'" != "" {
           local degrees = 10000000000
         }
 

@@ -11,7 +11,7 @@
 
 {title:Title}
 {phang}
-{bf:scfses} {hline 2} Calculate a given percentile (or mean) of the unconditional distribution of a variable in the Survey of Consumer Finances
+{bf:scfses} {hline 2} Calculate a given percentile (or mean) of the unconditional distribution of a variable in the Survey of Consumer Finances (SCF).
 
 {marker syntax}{...}
 {title:Syntax}
@@ -26,11 +26,11 @@
 {synopt:{opt p(#, mean)}} the desired percentile.  The default is {cmd:p(50)}, which is the median (50th percentile).  If "p(mean)" is specified, then the program computes the average value of the variable.  {p_end}
 {synopt:{opt number:draws(#)}} number of replicates for imputation (within) variability.  {p_end}
 {synopt:{opt imp(#)}} number of implicates for sampling (between) variability.  The default is {cmd:imp(5)}, which means the command uses all five implicates.{p_end}
-{synopt:{opt ci(#)}} the confidence interval returned in r(table).  The default is a 95% CI.{p_end}
-{synopt:{opt impnm(string)}} name for variables containing the name of the implicate.  The default name is rep.  {p_end}
-{synopt:{opt repnm(string)}} name for variables containing the number of draws in the i-th replicate.  The default name is mm.  {p_end}
-{synopt:{opt repwt(string)}} name for variables containing the weights for draws in the i-th replicate.  wt1b is the default; not invoked unless the program is already weighted.  {p_end}
-{synopt:{opt nodofcorr}} turns off the degrees of freedom correction.{p_end}
+{synopt:{opt ci(#)}} the confidence interval returned in {cmd:r(table)}.  The default is a 95% CI.{p_end}
+{synopt:{opt impnm(string)}} name for variables containing the name of the implicate.  The default name is {cmd:rep}. {p_end}
+{synopt:{opt repnm(string)}} name for variables containing the number of draws in the i-th replicate.  The default name is {cmd:mm}.  {p_end}
+{synopt:{opt repwt(string)}} name for variables containing the weights for draws in the i-th replicate.  {cmd:wt1b} is the default; not invoked unless the program is already weighted.  {p_end}
+{synopt:{opt nodfcorr}} turns off the degrees of freedom correction.{p_end}
 {synoptline}
 {p2colreset}{...}
 {p 4 6 2}
@@ -52,10 +52,10 @@ the SCF, as well as the standard error of that parameter.
 {cmd:scfses} can also compute the mean of the variable, by specifying {cmd:p(mean)}.  
 
 {pstd}
-To generate point estimates and standarad errors, the command follows guidance given by the Survey of Consumer Finances (with details below).  
+To generate point estimates and standard errors, the command follows guidance given by the Survey of Consumer Finances (with details below).  
 The program also implements a degrees-of-freedom correction for confidence intervals, following Barnard and Rubin (1999).  
 This degrees-of-freedom correction takes into account that some
- of the SCF data are imputed when computing confidence intervals.  The option {cmd:nodofcorr} turns off this correction and just
+ of the SCF data are imputed when computing confidence intervals.  The option {cmd:nodfcorr} turns off this correction and just
  conducts testing against the normal distribution.  
 
 {pstd}
@@ -110,7 +110,7 @@ The default name is mm; in that case, the command searches for variables titled 
 These weights are not used in computation unless pweights are already specified.  
 
 {phang}
-{opt nodofcorr} omits the degrees-of-freedom correction as described below. If invoked, the program tests against the normal distribution (or, to be precise, the t-distribution with a very large number of degrees of freedom).
+{opt nodfcorr} omits the degrees-of-freedom correction as described below. If invoked, the program tests against the normal distribution (or, to be precise, the t-distribution with a very large number of degrees of freedom).
 
 {marker remarks}{...}
 
@@ -234,10 +234,10 @@ Weights by WGT.  The impnm, repnm, and repwt options give the name of the variab
 Obtains mean debt among people ages 50-54 in the 2016 SCF.  Uses 999 replicates and five implicates for computing point estimates and imputation variability.  
 
 {title:References}
-{phang} Barnard, John, and Donald B. Rubin.  1999.  "Small-Sample Degrees of Freedom with Multiple Imputation." {it:{Biometrica}}
+{phang} Barnard, John, and Donald B. Rubin.  1999.  "Small-Sample Degrees of Freedom with Multiple Imputation." {it:Biometrica}
  86 (4): 948-955.  {p_end}
 {phang} Kennickell, Arthur B.  2000.  "Wealth Measurement in the Survey of Consumer Finances: Methodology and Directions for Future Research." {p_end}
-{phang} Monalto, Catherine Phillips, and Jaimie Sung.  1996.  "Multiple Imputation in the 1992 Survey of Consumer Finances." {it:{Financial Counseling and Planning}} 7 (1): 133-146.  {p_end}
+{phang} Monalto, Catherine Phillips, and Jaimie Sung.  1996.  "Multiple Imputation in the 1992 Survey of Consumer Finances." {it:Financial Counseling and Planning} 7 (1): 133-146.  {p_end}
 
 {title:Author}
 {pstd}
