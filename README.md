@@ -41,11 +41,11 @@ Usage notes are documented in detail in the Stata help file.
 
 # Additional Notes Re: Degrees-of-Freedom Correction
 
-* `scfses` incorporates, by default, a degrees-of-freedom correction for obtaining a confidence interval around your test statistic. Stata has the convention of reporting a 95\% confidence interval (e.g. in regression coefficients) that tests the statistic against the _t_ distribution. That test is only exact if the variable is normally distributed, but it is conservative otherwise. `scfses`, by default, constructs the 95\% confidence interval using the _t_ distribution, but the user has the option to test against the Normal distribution instead. 
+* `scfses` incorporates, by default, a degrees-of-freedom correction for obtaining a confidence interval around your test statistic. Stata has the convention of reporting a 95\% confidence interval (e.g. in regression coefficients) that tests the statistic against the _t_ distribution. That test is only exact if the variable is normally distributed, but it is conservative otherwise. `scfses`, by default, constructs the 95\% confidence interval using the _t_ distribution, but the user has the option to test against the normal distribution instead. 
 
-* Many variables in the SCF may not be Normally distributed, and hence the user may wish to turn off the degrees of freedom correction using the option `nodofcorr`. 
+* Many variables in the SCF may not be normally distributed, and hence the user may wish to turn off the degrees of freedom correction using the option `nodofcorr`. 
 
-* In general, the degrees-of-freedom correction is likely to make very little difference, given how quickly the _t_ distribution with sufficient degrees of freedom approaches the Normal distribution. 
+* In general, the degrees-of-freedom correction is likely to make very little difference, given how quickly the _t_ distribution with sufficient degrees of freedom approaches the normal distribution. 
 
 # Author
 Charlie Rafkin  

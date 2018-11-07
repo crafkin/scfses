@@ -55,8 +55,9 @@ the SCF, as well as the standard error of that parameter.
 To generate point estimates and standard errors, the command follows guidance given by the Survey of Consumer Finances (with details below).  
 The program also implements a degrees-of-freedom correction for confidence intervals, following Barnard and Rubin (1999).  
 This degrees-of-freedom correction takes into account that some
- of the SCF data are imputed when computing confidence intervals.  The option {cmd:nodfcorr} turns off this correction and just
- conducts testing against the normal distribution.  
+ of the SCF data are imputed when computing confidence intervals from the t distribution.  The option {cmd:nodfcorr} turns off this correction and just
+ conducts testing against the normal distribution.  Note that the t test, while incorporated by default (and conservative), is only exact for variables that are 
+ approximately normally distributed, which may or may not be the case depending on the SCF variable of interest. 
 
 {pstd}
 It is recommended to use the survey weights contained in the SCF to obtain accurate estimates.  
@@ -115,7 +116,7 @@ In that case, the command searches for variables titled wt1b1, wt1b2, wt1b3, wt1
 These weights are not used in computation unless pweights are already specified.  
 
 {phang}
-{opt nodfcorr} omits the degrees-of-freedom correction as described below. If invoked, the program tests against the normal distribution (or, to be precise, the t-distribution with a very large number of degrees of freedom).
+{opt nodfcorr} omits the degrees-of-freedom correction as described below. If invoked, the program tests against the normal distribution (or, to be precise, the t distribution with a very large number of degrees of freedom).
 
 {marker remarks}{...}
 
@@ -220,12 +221,12 @@ The correction is conservative; it will always increase the size of confidence i
 
 {pstd}
 Note that Stata's confidence intervals reported on, e.g., regression coefficients test against the t distribution.  
-But that test is only exact if the variable's data generating process is approximately Normal.  
-Otherwise, these confidence intervals are conservative with respect to testing against the Normal distribution.  
+But that test is only exact if the variable's data generating process is approximately normal.  
+Otherwise, these confidence intervals are conservative with respect to testing against the normal distribution.  
 
 {pstd}
-SCF variables may or may not be Normally distributed.  
-While the degrees-of-freedom correction is incorporated by default, the user may wish simply to generate confidence intervals from the Normal distribution.  
+SCF variables may or may not be normally distributed.  
+While the degrees-of-freedom correction is incorporated by default, the user may wish simply to generate confidence intervals from the normal distribution.  
 The user can do so by invoking the option that turns off the correction.  
 
 {marker examples}{...}
@@ -266,4 +267,5 @@ National Bureau of Economic Research
 
 {pstd}
 crafkin@nber.org 
+
 
