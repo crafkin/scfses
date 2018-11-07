@@ -30,7 +30,7 @@
 {synopt:{opt impnm(string)}} name for variables containing the name of the implicate.  The default name is {cmd:rep}. {p_end}
 {synopt:{opt repnm(string)}} name for variables containing the number of draws in the i-th replicate.  The default name is {cmd:mm}.  {p_end}
 {synopt:{opt repwt(string)}} name for variables containing the weights for draws in the i-th replicate.  {cmd:wt1b} is the default and is not invoked unless the program is already weighted.  {p_end}
-{synopt:{opt nodfcorr}} turns off the degrees of freedom correction.{p_end}
+{synopt:{opt nodfcorr}} turns off the degrees-of-freedom correction.{p_end}
 {synoptline}
 {p2colreset}{...}
 {p 4 6 2}
@@ -211,12 +211,22 @@ For example, the variables wt1b1, wt1b2, wt1b3, and wt1b4, could correspond to t
 
 {dlgtab:Degrees of Freedom Correction}
 {pstd}
-When generating a confidence interval, one must account for the data's degrees of freedom.  
+When generating a confidence interval using the t distribution, one must account for the data's degrees of freedom.  
 The imputation procedure can affect the degrees of freedom, and ignoring the imputation could yield inaccurate confidence intervals.  
 
 {pstd} 
 Barnard and Rubin (1999) provide a degrees-of-freedom correction to generate confidence intervals that account for multiple imputation. 
 The correction is conservative; it will always increase the size of confidence intervals.  The program implements the correction by default.  
+
+{pstd}
+Note that Stata's confidence intervals reported on, e.g., regression coefficients test against the t distribution.  
+But that test is only exact if the variable's data generating process is approximately Normal.  
+Otherwise, these confidence intervals are conservative with respect to testing against the Normal distribution.  
+
+{pstd}
+SCF variables may or may not be Normally distributed.  
+While the degrees-of-freedom correction is incorporated by default, the user may wish simply to generate confidence intervals from the Normal distribution.  
+The user can do so by invoking the option that turns off the correction.  
 
 {marker examples}{...}
 {title:Examples}
